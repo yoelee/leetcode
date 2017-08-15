@@ -40,17 +40,18 @@ public class Atoi {
                 return Integer.MIN_VALUE;
             }
         }
-
-        int result = 0;
+        System.out.println("tmp:"+tmp);
+        long result = 0;
         for(int i = 0; i < tmp.length(); i++){
             result += (tmp.charAt(i)-'0')*Math.pow(10,tmp.length()-i-1);
         }
 
-        return result*flag;
+        return (int)result*flag;
     }
     public static void main(String [] args){
         Atoi a = new Atoi();
         System.out.println(a.myAtoi("  -0012a42"));
+        System.out.println(a.myAtoi("-2147483648"));
         System.out.println(a.myAtoi("-123"));
         System.out.println(a.myAtoi("    010"));
         System.out.println(Integer.MIN_VALUE);
